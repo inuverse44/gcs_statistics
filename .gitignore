@@ -1,0 +1,9 @@
+**/____pycache__
+.DS_Store
+
+# output
+*.jpg
+*.jpeg
+*.pdf
+*.png
+*.csv
