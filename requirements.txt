@@ -1,3 +1,6 @@
 pandas
 matplotlib
 google-cloud-storage
+
+# config
+PyYAML

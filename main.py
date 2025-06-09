@@ -18,27 +18,13 @@ Author: Your Name (optional)
 """
 
 import controller
+from config_loader import load_config
 
 if __name__ == '__main__':
-    # Target GCS bucket name
-    BUCKET_NAME = 'shinise-dev-stockmiddleware-import'
+    config = load_config()
 
-    # List of prefixes to process
-    PREFIX_LIST = [
-        'init-stock',
-        'stock-adjust', 
-        'centerstock', 
-        'purchase', 
-        'stocktaking', 
-        'asn', 
-        'order', 
-        'lomos', 
-        'fresh-plan', 
-        'fresh-label', 
-        'sales', 
-        'ec-sales'
-    ]
+    BUCKET_NAME = config['bucket_name']
+    PREFIX_LIST = config['prefix_list']
 
-    # Process each prefix
     for prefix in PREFIX_LIST:
         controller.process_prefix(bucket_name=BUCKET_NAME, prefix=prefix)
